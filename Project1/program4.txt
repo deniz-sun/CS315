@@ -1,0 +1,35 @@
+start
+var a,b;
+//If both input 0 display true
+foo(var a,var b)
+{
+if(~a&&~b)
+{
+out(true);
+}
+}
+//If both input 1 display true
+func(var a,var b)
+{
+if(a&&b)
+{
+out(true);
+}
+//If inputs 0 and 1 display true
+}func1(var a,var b)
+{
+if(a~==b)
+{
+out(true);
+}
+}
+a = true;
+b = false;
+foo(a,b);
+foo1(a,b);
+foo2(a,b);
+a = false;
+foo(a,b);
+foo1(a,b);
+foo2(a,b);
+finish

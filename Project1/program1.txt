@@ -1,0 +1,28 @@
+start
+var x, y, z;
+x = in();
+while (x ~== 0 || x ~== 1)
+{
+out("Please enter zero or one");
+x = in();
+}
+y = in();
+while (y ~== 0 || y ~== 1)
+{
+out("Please enter zero or one");
+y = in();
+}
+z = in();
+while (z ~== 0 || z ~== 1)
+{
+out("Please enter zero or one");
+z = in();
+}
+while(x && y && z)
+{
+out("Enter one false value");
+z = in();
+}
+out(x  -> y);
+out(~x <-> z);
+finish

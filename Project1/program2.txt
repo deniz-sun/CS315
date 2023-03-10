@@ -1,0 +1,36 @@
+start
+foo(var p, var q, var r)
+{
+if(r==true){
+return (p -> (q || r));
+}
+else
+return (q<->r);
+}
+while (a==true)
+{
+if (b==true)
+{
+var c = foo(a,b,false);
+out(a, b, c);
+}
+else if (b==false)
+{
+var c = foo(a,b,false);
+out(a, b, c);
+}
+}
+while (a==false)
+{
+if (b==true)
+{
+var c = foo(a,b,false);
+out(a, b, c);
+}
+else if (b==false)
+{
+var c = foo(a,b,false);
+out(a, b, c);
+}
+}
+finish

@@ -1,0 +1,17 @@
+start
+var x,y,z,t;
+x = in();
+y = in();
+z = in();
+t = in();
+array arr1 = [x,y];
+array arr2 = [z,t];
+if(x == z && y == t)
+{
+out("True");
+}
+else
+{
+out("False");
+}
+finish

@@ -1,0 +1,22 @@
+start
+//if a=b, p is true and q is false
+var a = 1;
+var b = 0;
+var p, q;
+if(a==b){
+p=1;
+q=false;
+}
+//else they are both true
+else
+{
+p=true;
+q=true;
+}
+/*
+p and q are double implied if both are true or both are false
+*/
+while((p == 1 && q == 1) || (p == 0 && q == 0 )){
+p<->q;
+}
+finish
