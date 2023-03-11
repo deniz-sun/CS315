@@ -44,6 +44,6 @@ in                              printf("INPUT ");
 out                             printf("OUTPUT ");
 \"(.|\n)*\"                     printf("STRING ");
 "//".*      		        printf("SINGLE_LINE_COMMENT ");
-"/*"(.|\n)*"*/" 	 printf("MULTIPLE_LINE_COMMENT ");
-
+"/*"(.|\n)*"*/" 	  printf("MULTIPLE_LINE_COMMENT ");
 .                               ;
+%%
