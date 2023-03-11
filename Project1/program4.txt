@@ -26,10 +26,10 @@ out(true);
 a = true;
 b = false;
 foo(a,b);
-func3(a,b);
-func4(a,b);
+func1(a,b);
+func2(a,b);
 a = false;
 foo(a,b);
-func3(a,b);
-func4(a,b);
+func1(a,b);
+func2(a,b);
 finish
