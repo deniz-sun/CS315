@@ -17,6 +17,6 @@ q=true;
 p and q are double implied if both are true or both are false
 */
 while((p == 1 && q == 1) || (p == 0 && q == 0 )){
-p<->q;
+out(p<->q);
 }
 finish
