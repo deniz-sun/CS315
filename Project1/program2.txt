@@ -7,27 +7,9 @@ return (p -> (q || r));
 else
 return (q<->r);
 }
-while (a==true)
+while (a==1 || a==0)
 {
-if (b==true)
-{
-var c = foo(a,b,false);
-out(a, b, c);
-}
-else if (b==false)
-{
-var c = foo(a,b,false);
-out(a, b, c);
-}
-}
-while (a==false)
-{
-if (b==true)
-{
-var c = foo(a,b,false);
-out(a, b, c);
-}
-else if (b==false)
+if (b==true || b==true)
 {
 var c = foo(a,b,false);
 out(a, b, c);
