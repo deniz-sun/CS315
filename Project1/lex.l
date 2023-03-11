@@ -1,3 +1,4 @@
+%option main
 newline                         \n
 tab                             \t
 letter                          [a-zA-Z]
