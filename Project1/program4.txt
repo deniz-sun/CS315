@@ -9,14 +9,14 @@ out(true);
 }
 }
 //If both input 1 display true
-func(var a,var b)
+func1(var a,var b)
 {
 if(a&&b)
 {
 out(true);
 }
 //If inputs 0 and 1 display true
-}func1(var a,var b)
+}func2(var a,var b)
 {
 if(a~==b)
 {
@@ -26,10 +26,10 @@ out(true);
 a = true;
 b = false;
 foo(a,b);
-foo1(a,b);
-foo2(a,b);
+func3(a,b);
+func(a,b);
 a = false;
 foo(a,b);
-foo1(a,b);
-foo2(a,b);
+func3(a,b);
+func4(a,b);
 finish
