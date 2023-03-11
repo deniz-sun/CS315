@@ -9,7 +9,7 @@ return (q<->r);
 }
 while (a==1 || a==0)
 {
-if (b==true || b==true)
+if (b==true || b==false)
 {
 var c = foo(a,b,false);
 out(a, b, c);
