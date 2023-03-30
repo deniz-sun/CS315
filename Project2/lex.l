@@ -14,7 +14,7 @@ var		[a-z]
 {tab}           return TAB;
 start           return START;
 finish          return FINISH;
-{var}	 	return VAR;
+{var}	 	return VAR_IDENTIFIER;
 {function}	return FUNCTION;
 {array}		return ARRAY_IDENTIFIER;
 {var_type}	return VAR_TYPE;
