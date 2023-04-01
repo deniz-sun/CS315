@@ -1,12 +1,14 @@
 %option yylineno
 newline		\n
 tab             \t
-letter          [a-zA-Z]
+alphabetic      [a-zA-Z]
 bool_true       true|1
 bool_false      false|0
 function        function
 array           array
 var             var
+digit           [0-9]
+alphanumeric    ({alphabetic}|{digit})
 identifier      [a-zA-Z][a-zA-Z0-9]*
 %%
 {newline}       return NL;
