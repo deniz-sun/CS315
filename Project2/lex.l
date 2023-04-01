@@ -1,4 +1,4 @@
-%option main
+%option yylineno
 newline		\n
 tab             \t
 letter          [a-zA-Z]
@@ -18,7 +18,6 @@ finish          return FINISH;
 {var}	return VAR;
 {bool_true}     return TRUE;
 {bool_false}    return FALSE;
-{identifier}    return IDENTIFIER;
 \&\&            return AND;
 \|\|            return OR;
 \~              return NOT;
@@ -43,5 +42,7 @@ out             return OUTPUT;
 "//".*      	return SINGLE_LINE_COMMENT;
 "/*"(.|\n)*"*/" return MULTIPLE_LINE_COMMENT;
 \"(.|\n)*\"		return STRING;
+{identifier}    return IDENTIFIER;
 .           	;
 %%
+int yywrap() { return 1; }
