@@ -20,7 +20,6 @@ finish          return FINISH;
 {var}	return VAR;
 {bool_true}     return TRUE;
 {bool_false}    return FALSE;
-{alphanumeric}  return ALPHANUMERIC;
 \&\&            return AND;
 \|\|            return OR;
 \~              return NOT;
