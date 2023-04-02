@@ -43,6 +43,8 @@ in              return INPUT;
 out             return OUTPUT;
 "//".*      	return SINGLE_LINE_COMMENT;
 "/*"(.|\n)*"*/" return MULTIPLE_LINE_COMMENT;
+{alphabetic}	return ALPHABETIC;
+{digit}		return NUMERIC;
 \"(.|\n)*\"		return STRING;
 {identifier}    return IDENTIFIER;
 .           	;
