@@ -83,7 +83,7 @@ comment: "/" "*" string_content "*" "/"
 identifiers: ALPHABETIC | IDENTIFIER {printf("found identifier\n");}
 string: '\"' '\"' | '\"' string_content '\"'
 single_line_content: alphanumeric | alphanumeric single_line_content
-string_content: '\n' | '|n' string_content | alphanumeric | alphanumeric string_content
+string_content: '\n' | '\n' string_content | alphanumeric | alphanumeric string_content
 alphanumeric: ALPHABETIC | NUMERIC
 %%
 #include "lex.yy.c"
