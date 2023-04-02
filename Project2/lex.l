@@ -39,6 +39,7 @@ if              return IF;
 else            return ELSE;
 return          return RETURN;
 while           return WHILE;
+for             return FOR;
 in              return INPUT;
 out             return OUTPUT;
 "//".*      	return SINGLE_LINE_COMMENT;
