@@ -1,4 +1,4 @@
-%token START FINISH NL TAB
+%token START FINISH TAB NL
 %token FUNCTION ARRAY VAR IDENTIFIER
 %token TRUE FALSE
 %token LP RP CURLY_LP CURLY_RP SQUARE_RP SQUARE_LP
@@ -14,14 +14,18 @@
 %left IMPLIES
 %left DOUBLE_IMPLIES
 %%
-program: START stmts FINISH
-stmts: stmt 
+program: START NL stmts FINISH
+stmts: stmt
+     	| stmt NL
+	| stmt NL stmts
 	| stmt stmts
 stmt: assign_stmt
-	| logical_stmt
+    	| logical_stmt
 	| if_stmt
 	| loop_stmt
 	| return_stmt
+	| var_dec
+	| input_statement
 return_stmt: RETURN expr SC
 expr: expr logical_op expr
 	| bool
@@ -34,12 +38,12 @@ var_dec: VAR IDENTIFIER SC
 	| VAR IDENTIFIER COMMA mult_var SC
 mult_var: IDENTIFIER
 	| IDENTIFIER COMMA mult_var
-logical_op: AND %prec AND 
-	| IMPLIES %prec IMPLIES
-	| DOUBLE_IMPLIES %prec DOUBLE_IMPLIES
-	| OR %prec OR 
-	| EQUALS_OP %prec EQUALS_OP 
-	| NOT_EQUALS %prec NOT_EQUALS
+logical_op: EQUALS_OP
+	| NOT_EQUALS
+	| AND
+	| OR
+	| IMPLIES
+	| DOUBLE_IMPLIES
 bool: TRUE | FALSE
 logical_stmt: LP IDENTIFIER logical_op logical_stmt RP
     | IDENTIFIER logical_op logical_stmt
@@ -51,6 +55,8 @@ else_if_stmt: ELSE IF logical_stmt CURLY_LP stmts CURLY_RP
     | ELSE IF logical_stmt CURLY_LP stmts CURLY_RP else_if_stmt
 loop_stmt: while_loop | for_loop
 while_loop: WHILE logical_stmt CURLY_LP stmts CURLY_RP
+	  | WHILE logical_stmt CURLY_LP NL stmts CURLY_RP
+	  | WHILE logical_stmt NL CURLY_LP stmts CURLY_RP
 for_loop: FOR LP assign_stmt SC logical_stmt SC assign_stmt RP CURLY_LP stmts CURLY_RP
 function_declaration : FUNCTION IDENTIFIER LP identifiers RP CURLY_LP  stmts CURLY_RP 
 identifiers : IDENTIFIER 
@@ -68,7 +74,7 @@ elems: elem
 	| elem COMMA elems
 elem: IDENTIFIER
     | bool
-input_statement:  IDENTIFIER ASSIGNMENT_OP INPUT LP RP SC
+input_statement: IDENTIFIER ASSIGNMENT_OP INPUT LP RP SC
 %%
 #include "lex.yy.c"
 void yyerror(char *s){
