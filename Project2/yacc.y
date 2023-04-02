@@ -16,6 +16,7 @@
 %left DOUBLE_IMPLIES
 %%
 program: START NL stmts FINISH
+	| START NL FINISH
 stmts: stmt
      	| NL stmts
      	| stmt NL
