@@ -49,8 +49,8 @@ logical_op: EQUALS_OP
 	| DOUBLE_IMPLIES
 bool: TRUE | FALSE
 logical_stmt: LP IDENTIFIER logical_op logical_stmt RP
-    | bool logical_op logical_stmt
-    | bool
+    | elem logical_op logical_stmt
+    | elem
 if_stmt: IF logical_stmt CURLY_LP stmts CURLY_RP
     | IF logical_stmt CURLY_LP stmts CURLY_RP  ELSE CURLY_LP  stmts CURLY_RP
     | IF logical_stmt CURLY_LP stmts CURLY_RP else_if_stmt
