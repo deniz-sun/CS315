@@ -45,8 +45,8 @@ out             return OUTPUT;
 "/*"(.|\n)*"*/" return MULTIPLE_LINE_COMMENT;
 {alphabetic}	return ALPHABETIC;
 {digit}		return NUMERIC;
-\"(.|\n)*\"		return STRING;
 {identifier}    return IDENTIFIER;
+\"(.|\n)*\"		return STRING;
 .           	;
 %%
 int yywrap() { return 1; }
