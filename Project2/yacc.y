@@ -33,14 +33,14 @@ return_stmt: RETURN expr SC
 expr: expr logical_op expr
 	| bool
 	| LP expr RP
-	| IDENTIFIER
+	| identifiers
 	| NOT expr
 assign_stmt:  mult_var ASSIGNMENT_OP expr SC
 	| VAR mult_var ASSIGNMENT_OP expr SC
-var_dec: VAR IDENTIFIER SC
-	| VAR IDENTIFIER COMMA mult_var SC
-mult_var: IDENTIFIER
-	| IDENTIFIER COMMA mult_var
+var_dec: VAR identifiers SC
+	| VAR identifiers COMMA mult_var SC
+mult_var: identifiers
+	| identifiers COMMA mult_var
 logical_op: EQUALS_OP
 	| NOT_EQUALS
 	| AND
@@ -48,7 +48,7 @@ logical_op: EQUALS_OP
 	| IMPLIES
 	| DOUBLE_IMPLIES
 bool: TRUE | FALSE
-logical_stmt: LP IDENTIFIER logical_op logical_stmt RP
+logical_stmt: LP identifiers logical_op logical_stmt RP
     | elem logical_op logical_stmt
     | elem
 if_stmt: IF logical_stmt CURLY_LP stmts CURLY_RP
@@ -59,21 +59,22 @@ else_if_stmt: ELSE IF logical_stmt CURLY_LP stmts CURLY_RP
 loop_stmt: while_loop | for_loop
 while_loop: WHILE logical_stmt CURLY_LP stmts CURLY_RP
 for_loop: FOR LP assign_stmt SC logical_stmt SC assign_stmt RP CURLY_LP stmts CURLY_RP 
-function_def: FUNCTION IDENTIFIER LP param RP CURLY_LP stmts CURLY_RP
-    | FUNCTION IDENTIFIER LP RP CURLY_LP stmts CURLY_RP 
-function_call: IDENTIFIER LP RP SC
-	     | IDENTIFIER LP elems RP SC
-param: VAR IDENTIFIER 
-    | VAR IDENTIFIER COMMA param 
-array_structure: ARRAY IDENTIFIER ASSIGNMENT_OP SQUARE_LP elems SQUARE_RP
-    | ARRAY IDENTIFIER ASSIGNMENT_OP SQUARE_LP SQUARE_RP
+function_def: FUNCTION identifiers LP param RP CURLY_LP stmts CURLY_RP
+    | FUNCTION identifiers LP RP CURLY_LP stmts CURLY_RP 
+function_call: identifiers LP RP SC
+	     | identifiers LP elems RP SC
+param: VAR identifiers 
+    | VAR identifiers COMMA param 
+array_structure: ARRAY identifiers ASSIGNMENT_OP SQUARE_LP elems SQUARE_RP
+    | ARRAY identifiers ASSIGNMENT_OP SQUARE_LP SQUARE_RP
 elems: elem 
 	| elem COMMA elems
-elem: IDENTIFIER
+elem: identifiers
     | bool
 comment: "/" "*" string_content "*" "/"
-      | "/" "/" single_line_content 
-input_stmt: IDENTIFIER ASSIGNMENT_OP INPUT LP RP SC
+      | "/" "/" single_line_content
+identifiers: ALPHABETICAL | IDENTIFIER
+input_stmt: identifiers ASSIGNMENT_OP INPUT LP RP SC
 output_stmt: OUTPUT LP expr RP SC
 		| OUTPUT LP string RP SC
 string: '\"' '\"' | '\"' string_content '\"'
